@@ -1,0 +1,21 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "es2020"],
+		"outDir": "../../",
+		"paths": {
+			"@env/*": ["src/env/browser/*"]
+		},
+		"useDefineForClassFields": false
+	},
+	"include": [
+		"**/*",
+		"../../@types/**/*",
+		"../protocol.ts",
+		"../../config.ts",
+		"../../features.ts",
+		"../../subscription.ts",
+		"../../system/date.ts"
+	],
+	"exclude": ["node_modules", "test"]
+}

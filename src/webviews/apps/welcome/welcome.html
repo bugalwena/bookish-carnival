@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+	</head>
+
+	<body class="preload">
+		<!-- <canvas class="snow"></canvas>
+		<img
+			class="snow__trigger snow__trigger--fixed-right snow__trigger--flipped"
+			title="Let it snow — Happy Holidays!"
+			alt="Let it snow — Happy Holidays!"
+			src="#{root}/images/snowman.png"
+		/> -->
+
+		<div class="container">
+			<header>
+				<a
+					class="header__link"
+					title="Learn more about GitLens"
+					href="https://gitkraken.com/gitlens?utm_source=gitlens-extension&utm_medium=in-app-links&utm_campaign=gitlens-logo-links"
+				>
+					<div class="header__logo">
+						<img class="image__logo" src="#{root}/images/gitlens-icon.png" />
+						<div>
+							<h1 class="header__title">Git<span class="header__title--highlight">Lens</span></h1>
+							<p class="header__subtitle">Git supercharged</p>
+						</div>
+					</div>
+				</a>
+				<p class="header__blurb">
+					GitLens <b>supercharges</b> Git inside VS Code and unlocks the <b>untapped knowledge</b> within each
+					repository. It helps you to <b>visualize code authorship</b> at a glance via Git blame annotations
+					and CodeLens, <b>seamlessly navigate and explore</b> Git repositories,
+					<b>gain valuable insights</b> via rich visualizations and powerful comparison commands, and so much
+					more.
+				</p>
+			</header>
+
+			<div class="content__area">
+				<section id="welcome" class="section--full">
+					<h2 class="section__title section__title--primary">
+						Welcome to <span class="highlight">GitLens 12</span>
+					</h2>
+					<div class="section__whatsnew">
+						<a
+							title="Watch the GitLens Getting Started video"
+							href="https://www.youtube.com/watch?v=UQPb73Zz9qk"
+						>
+							<img
+								src="#{webroot}/media/gitlens-tutorial-banner.webp"
+								alt="Watch the GitLens Getting Started video"
+							/>
+						</a>
+						<a
+							class="button button--flat"
+							title="See What's New"
+							href="https://gitkraken.com/blog/gitlens-12"
+							>See What's New in GitLens 12</a
+						>
+						<span class="button__subaction"
+							>or read the <a href="https://gitlens.amod.io/#whats-new">release notes</a></span
+						>
+						<a
+							class="button button--flat"
+							title="Open the Get Started with GitLens walkthrough"
+							href="command:gitlens.getStarted"
+							>Get Started Walkthrough</a
+						>
+						<span class="button__subaction"
+							>or <a href="command:gitlens.plus.learn">learn about GitLens+ features</a></span
+						>
+					</div>
+
+					<h2 id="quick-setup" class="section__title section__title--break">Quick Setup</h2>
+					<p class="blurb ml-2 mr-2">
+						GitLens is <b>powerful</b>, <b>feature rich</b>, and highly <b>customizable</b> to meet your
+						needs. Do you find CodeLens intrusive or the current line blame annotation distracting &mdash;
+						no problem, quickly turn them off or change how they behave using the options below.
+					</p>
+					<p class="blurb mt-0 mb-0 center">
+						<i class="icon icon__info"></i> For more options, use the interactive
+						<a class="command" title="Open GitLens Settings" href="command:gitlens.showSettingsPage"
+							>GitLens settings editor</a
+						>
+					</p>
+				</section>
+
+				<section id="current-line" class="section--settings">
+					<div class="section__content">
+						<div class="section__header">
+							<div class="setting__input setting__input--big">
+								<input
+									id="currentLine.enabled"
+									name="currentLine.enabled"
+									type="checkbox"
+									data-setting
+									data-add-settings-off="hovers.currentLine.over=line"
+								/>
+								<label for="currentLine.enabled">Current Line Blame</label>
+								<a
+									class="link__configure"
+									title="Jump to more Current Line Blame settings"
+									href="command:gitlens.showSettingsPage?%22current-line%22"
+								>
+									<i class="icon icon__gear"></i>
+								</a>
+							</div>
+							<p class="section__header-hint">
+								Adds an unobtrusive blame annotation at the end of the current line
+							</p>
+						</div>
+					</div>
+					<div class="section__preview">
+						<img
+							class="image__preview"
+							src="#{webroot}/media/current-line-blame.webp"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/current-line-blame-on.webp"
+							data-visibility="currentLine.enabled"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/current-line-blame-on+pr.webp"
+							data-visibility="currentLine.enabled &amp; currentLine.pullRequests.enabled"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/current-line-blame-on-scrollable.webp"
+							data-visibility="currentLine.enabled &amp; currentLine.scrollable"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+					</div>
+				</section>
+
+				<section id="code-lens" class="section--settings">
+					<div class="section__content">
+						<div class="section__header">
+							<div class="setting__input setting__input--big">
+								<input id="codeLens.enabled" name="codeLens.enabled" type="checkbox" data-setting />
+								<label for="codeLens.enabled">Git CodeLens</label>
+								<a
+									class="link__configure"
+									title="Jump to more Git CodeLens settings"
+									href="command:gitlens.showSettingsPage?%22code-lens%22"
+								>
+									<i class="icon icon__gear"></i>
+								</a>
+							</div>
+							<p class="section__header-hint">
+								Adds authorship CodeLens to the top of files and on code blocks
+							</p>
+						</div>
+					</div>
+					<div class="section__preview">
+						<img
+							class="image__preview"
+							src="#{webroot}/media/code-lens.webp"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-file-recent+authors.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled &amp; codeLens.authors.enabled &amp; codeLens.scopes +document"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-file-recent.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled &amp; codeLens.authors.enabled =false &amp; codeLens.scopes +document"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-file-authors.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled =false &amp; codeLens.authors.enabled &amp; codeLens.scopes +document"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-containers-recent+authors.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled &amp; codeLens.authors.enabled &amp; codeLens.scopes +containers"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-containers-recent.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled &amp; codeLens.authors.enabled =false &amp; codeLens.scopes +containers"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-containers-authors.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled =false &amp; codeLens.authors.enabled &amp; codeLens.scopes +containers"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-blocks-recent+authors.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled &amp; codeLens.authors.enabled &amp; codeLens.scopes +blocks"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-blocks-recent.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled &amp; codeLens.authors.enabled =false &amp; codeLens.scopes +blocks"
+							loading="lazy"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/code-lens-blocks-authors.webp"
+							data-visibility="codeLens.enabled &amp; codeLens.recentChange.enabled =false &amp; codeLens.authors.enabled &amp; codeLens.scopes +blocks"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+					</div>
+				</section>
+
+				<section id="status-bar" class="section--settings">
+					<div class="section__content">
+						<div class="section__header">
+							<div class="setting__input setting__input--big">
+								<input id="statusBar.enabled" name="statusBar.enabled" type="checkbox" data-setting />
+								<label for="statusBar.enabled">Status Bar Blame</label>
+								<a
+									class="link__configure"
+									title="Jump to more Status Bar Blame settings"
+									href="command:gitlens.showSettingsPage?%22status-bar%22"
+								>
+									<i class="icon icon__gear"></i>
+								</a>
+							</div>
+							<p class="section__header-hint">
+								Adds a Git blame annotation about the current line to the status bar
+							</p>
+						</div>
+					</div>
+					<div class="section__preview">
+						<img
+							class="image__preview"
+							src="#{webroot}/media/status-bar.webp"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/status-bar-left.webp"
+							data-visibility="statusBar.enabled &amp; statusBar.alignment =left"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+						<img
+							class="image__preview--overlay hidden"
+							src="#{webroot}/media/status-bar-right.webp"
+							data-visibility="statusBar.enabled &amp; statusBar.alignment =right"
+							loading="lazy"
+							width="600"
+							height="206"
+						/>
+					</div>
+				</section>
+
+				<section id="views" class="section--settings">
+					<div class="section__content">
+						<div class="section__header">
+							<h2>
+								Views
+								<a
+									class="link__configure"
+									title="Jump to more View settings"
+									href="command:gitlens.showSettingsPage?%22views%22"
+								>
+									<i class="icon icon__gear"></i>
+								</a>
+							</h2>
+						</div>
+
+						<p class="blurb mt-0">
+							GitLens views can be configured to be shown in different side bar layouts to best match your
+							workflow
+						</p>
+
+						<div class="presets mb-1">
+							<div class="preset">
+								<a
+									class="button button--flat"
+									title="Shows all the views together on the Source Control side bar"
+									href="command:gitlens.setViewsLayout?%7B%22layout%22%3A%22scm%22%7D"
+									>Source Control Layout (default)</a
+								>
+								<p>Shows all the views together on the Source Control side bar</p>
+								<img
+									class="image__preview"
+									src="#{webroot}/media/views-layout-scm.webp"
+									loading="lazy"
+									width="357"
+									height="410"
+								/>
+							</div>
+							<div class="preset">
+								<a
+									class="button button--flat"
+									title="Shows all the views together on the GitLens side bar"
+									href="command:gitlens.setViewsLayout?%7B%22layout%22%3A%22gitlens%22%7D"
+									>GitLens Layout</a
+								>
+								<p>Shows all the views together on the GitLens side bar</p>
+								<img
+									class="image__preview"
+									src="#{webroot}/media/views-layout-gitlens.webp"
+									loading="lazy"
+									width="357"
+									height="410"
+								/>
+							</div>
+						</div>
+
+						<p class="section__hint">
+							<i class="icon icon__info"></i> You can also simply drag &amp; drop individual views to
+							create custom layouts
+						</p>
+					</div>
+				</section>
+
+				<section id="dates" class="section--settings">
+					<div class="section__content">
+						<div class="section__header">
+							<h2>
+								Dates & Times
+								<a
+									class="link__configure"
+									title="Jump to more View settings"
+									href="command:gitlens.showSettingsPage?%22dates%22"
+								>
+									<i class="icon icon__gear"></i>
+								</a>
+							</h2>
+						</div>
+
+						<div class="setting">
+							<div class="setting__input">
+								<input
+									id="defaultDateStyle"
+									name="defaultDateStyle"
+									type="checkbox"
+									value="relative"
+									data-value-off="absolute"
+									data-setting
+								/>
+								<label for="defaultDateStyle">Allow relative date formatting</label>
+							</div>
+							<span class="setting__hint hidden" data-visibility="defaultDateStyle =relative"
+								>Shows some dates relatively, e.g. 1 day ago</span
+							>
+							<span class="setting__hint hidden" data-visibility="defaultDateStyle =absolute"
+								>Shows dates absolutely, e.g.
+								<span
+									data-setting-preview="defaultDateFormat"
+									data-setting-preview-type="date"
+									data-setting-preview-default="MMMM Do, YYYY h:mma"
+								></span>
+							</span>
+						</div>
+
+						<div class="settings">
+							<div class="setting">
+								<div class="setting__input">
+									<label for="defaultDateLocale">Date&nbsp;locale</label>
+									<input
+										id="defaultDateLocale"
+										name="defaultDateLocale"
+										type="text"
+										placeholder="defaults to VS Code locale"
+										data-setting
+										data-setting-preview
+									/>
+									<a
+										class="link__learn-more"
+										title="See possible BCP 47 language tag for supported locale values"
+										href="https://en.wikipedia.org/wiki/IETF_language_tag#List_of_major_primary_language_subtags"
+									>
+										<i class="icon icon__info"></i>
+									</a>
+								</div>
+								<span class="setting__hint">
+									<span style="line-height: 2rem">
+										<i class="icon icon--sm icon__info"></i> Use <code>system</code> for the system
+										locale, or a locale language tag, e.g. en-US
+									</span>
+									<br />
+									Example date:
+									<span
+										data-setting-preview="defaultDateLocale"
+										data-setting-preview-type="date-locale"
+										data-setting-preview-default="defaultDateFormat"
+									></span>
+								</span>
+							</div>
+
+							<div class="setting">
+								<div class="setting__input">
+									<label for="defaultDateFormat">Date&nbsp;format</label>
+									<input
+										id="defaultDateFormat"
+										name="defaultDateFormat"
+										type="text"
+										placeholder="defaults to MMMM Do, YYYY h:mma"
+										data-setting
+										data-setting-preview
+									/>
+									<a
+										class="link__learn-more"
+										title="See Moment.js docs for supported date formats"
+										href="https://momentjs.com/docs/#/displaying/format/"
+									>
+										<i class="icon icon__info"></i>
+									</a>
+								</div>
+								<span class="setting__hint"
+									>Example date:
+									<span
+										data-setting-preview="defaultDateFormat"
+										data-setting-preview-type="date"
+										data-setting-preview-default="MMMM Do, YYYY h:mma"
+									></span>
+								</span>
+							</div>
+
+							<div class="setting">
+								<div class="setting__input">
+									<label for="defaultDateShortFormat">Short&nbsp;date&nbsp;format</label>
+									<input
+										id="defaultDateShortFormat"
+										name="defaultDateShortFormat"
+										type="text"
+										placeholder="defaults to system short date format"
+										data-setting
+										data-setting-preview
+									/>
+									<a
+										class="link__learn-more"
+										title="See Moment.js docs for supported date formats"
+										href="https://momentjs.com/docs/#/displaying/format/"
+									>
+										<i class="icon icon__info"></i>
+									</a>
+								</div>
+								<span class="setting__hint"
+									>Example short date:
+									<span
+										data-setting-preview="defaultDateShortFormat"
+										data-setting-preview-type="date"
+										data-setting-preview-default="short"
+									></span>
+								</span>
+							</div>
+
+							<div class="setting">
+								<div class="setting__input">
+									<label for="defaultTimeFormat">Time&nbsp;format</label>
+									<input
+										id="defaultTimeFormat"
+										name="defaultTimeFormat"
+										type="text"
+										placeholder="defaults to h:mma"
+										data-setting
+										data-setting-preview
+									/>
+									<a
+										class="link__learn-more"
+										title="See Moment.js docs for supported date formats"
+										href="https://momentjs.com/docs/#/displaying/format/"
+									>
+										<i class="icon icon__info"></i>
+									</a>
+								</div>
+								<span class="setting__hint"
+									>Example time:
+									<span
+										data-setting-preview="defaultTimeFormat"
+										data-setting-preview-type="date"
+										data-setting-preview-default="h:mma"
+									></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		#{endOfBody}
+		<style nonce="#{cspNonce}">
+			@font-face {
+				font-family: 'codicon';
+				src: url('#{webroot}/codicon.ttf?404cbc4fe3a64b9a93064eef76704c79') format('truetype');
+			}
+		</style>
+	</body>
+</html>
